@@ -27,8 +27,14 @@ sortListSalary(employeeList);
 
 const employeeArray = getEmployees(employeeList);
 
-employeeArray.innerHTML = '';
+employeeList.innerHTML = '';
 
-sortListSalary.forEach((item) => {
-  employeeList.appendChild(item);
+employeeArray.forEach((item) => {
+  const li = document.createElement('li');
+
+  li.textContent = item.name;
+  li.dataset.position = item.position;
+  li.dataset.salary = item.salary;
+  li.dataset.age = item.age;
+  employeeList.appendChild(li);
 });
